@@ -1,0 +1,80 @@
+
+        /* Global styles for the page */
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+        }
+
+        /* Styling for the cigarette-like button */
+        #notifyButton {
+            width: 300px;
+            height: 60px;
+            border: none;
+            background: linear-gradient(to right, #f9d342, #f58220); /* Cigarette body color */
+            border-radius: 50px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            font-size: 24px;
+            color: white;
+            text-align: center;
+            line-height: 60px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        #notifyButton:hover {
+            background: linear-gradient(to right, #f9d342, #f79c42); /* Darken on hover */
+        }
+
+        /* Smoky animation */
+        @keyframes smoke {
+            0% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-80px) scale(1.5);
+            }
+        }
+
+        .smoke {
+            position: absolute;
+            top: -10px; /* Just above the button */
+            left: 50%;
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: smoke 2s ease-in-out infinite;
+            animation-delay: calc(0.1s * var(--i)); /* Stagger the smoke */
+        }
+
+        /* Animation for burning effect */
+        .burning {
+            animation: burnEffect 0.3s ease-out;
+        }
+
+        /* Burn animation for the button */
+        @keyframes burnEffect {
+            0% {
+                transform: scale(1);
+                background-color: #f58220;
+            }
+            50% {
+                transform: scale(1.1);
+                background-color: #ff8f00; /* Burning effect color */
+            }
+            100% {
+                transform: scale(1);
+                background-color: #f58220;
+            }
+        }
